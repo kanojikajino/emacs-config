@@ -14,7 +14,7 @@
 
 ;(el-get-bundle elpa:w3m)
 ;(setq w3m-imagick-convert-program nil)
-(package-initialize)
+
 
 (when load-file-name
   (setq user-emacs-directory (file-name-directory load-file-name)))
@@ -27,7 +27,7 @@
 ;  '(add-to-list 'company-backends 'company-irony))
 
 ; magit
-(el-get-bundle magit)
+;(el-get-bundle magit)
 
 ; fish
 ;(el-get-bundle emacs-fish)
@@ -284,3 +284,5 @@
    (let ((face (intern (format "rainbow-delimiters-depth-%d-face" index))))
     (cl-callf color-saturate-name (face-foreground face) 30))))
 (add-hook 'emacs-startup-hook 'rainbow-delimiters-using-stronger-colors)
+
+(package-initialize)
