@@ -35,34 +35,34 @@
  )
 
 
-;; flycheck
-(leaf flycheck
-  :doc "On-the-fly syntax checking"
-  :emacs>= 24.3
-  :ensure t
-  :bind (("M-n" . flycheck-next-error)
-         ("M-p" . flycheck-previous-error))
-  :custom ((flycheck-emacs-lisp-initialize-packages . t)
-	   (flycheck-display-errors-delay . 0.3)
-	   (flycheck-indication-mode . 'left-margin)) ;terminalで使うので、fringeではなくmarginに警告を表示
-  :hook (emacs-lisp-mode-hook lisp-interaction-mode-hook prog-mode-hook . flycheck-mode)
-  :config
-  (leaf flycheck-package
-    :doc "A Flycheck checker for elisp package authors"
-    :ensure t
-    :config
-    (flycheck-package-setup))
-  (leaf flycheck-elsa
-    :doc "Flycheck for Elsa."
-    :emacs>= 25
-    :ensure t
-    :config
-    (flycheck-elsa-setup))
-  (leaf flycheck-inline
-    :ensure t
-    :hook (flycheck-mode-hook . flycheck-inline-mode))
-  (add-hook 'flycheck-mode-hook #'flycheck-set-indication-mode) ; flycheckのみでmarginを使用
-)
+;; ;; flycheck
+;; (leaf flycheck
+;;   :doc "On-the-fly syntax checking"
+;;   :emacs>= 24.3
+;;   :ensure t
+;;   :bind (("M-n" . flycheck-next-error)
+;;          ("M-p" . flycheck-previous-error))
+;;   :custom ((flycheck-emacs-lisp-initialize-packages . t)
+;; 	   (flycheck-display-errors-delay . 0.3)
+;; 	   (flycheck-indication-mode . 'left-margin)) ;terminalで使うので、fringeではなくmarginに警告を表示
+;;   :hook (emacs-lisp-mode-hook lisp-interaction-mode-hook prog-mode-hook . flycheck-mode)
+;;   :config
+;;   (leaf flycheck-package
+;;     :doc "A Flycheck checker for elisp package authors"
+;;     :ensure t
+;;     :config
+;;     (flycheck-package-setup))
+;;   (leaf flycheck-elsa
+;;     :doc "Flycheck for Elsa."
+;;     :emacs>= 25
+;;     :ensure t
+;;     :config
+;;     (flycheck-elsa-setup))
+;;   (leaf flycheck-inline
+;;     :ensure t
+;;     :hook (flycheck-mode-hook . flycheck-inline-mode))
+;;   (add-hook 'flycheck-mode-hook #'flycheck-set-indication-mode) ; flycheckのみでmarginを使用
+;; )
 					;
 
 ; parenthese
